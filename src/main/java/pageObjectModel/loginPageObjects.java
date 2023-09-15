@@ -9,8 +9,8 @@ public class loginPageObjects {
 	public WebDriver driver;
 	private By username = By.xpath("//input[@name=\"username\"]");
 	private By password = By.xpath("//input[@type=\"password\"]");
-	private By loginbutton = By
-			.xpath("//button[@class=\"oxd-button oxd-button--medium oxd-button--main orangehrm-login-button\"]");
+	private By loginbutton = By.xpath("//button[@class=\"oxd-button oxd-button--medium oxd-button--main orangehrm-login-button\"]");
+	private By invalidloginmsg = By.xpath("//p[@class='oxd-text oxd-text--p oxd-alert-content-text']");
 
 	public loginPageObjects(WebDriver driver2) {
 		this.driver = driver2;
@@ -28,7 +28,8 @@ public class loginPageObjects {
 		return driver.findElement(loginbutton);
 	}
 
-	
-	
-	
+	public WebElement invalidmsg() {
+		return driver.findElement(invalidloginmsg);
+	}
+
 }

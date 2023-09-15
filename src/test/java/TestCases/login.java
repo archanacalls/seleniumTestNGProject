@@ -22,8 +22,28 @@ public class login extends BaseClass{
 		lpo.enteruserpassword().sendKeys("admin123");
 		lpo.pressloginbutton().click();
 		
-		commonMethods.handleAssertion(3"https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index",driver.getCurrentUrl());
+		commonMethods.handleAssertion("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index",driver.getCurrentUrl());
 		
 			}
-
+	@Test(priority=1)
+	public void verifyInvalidLogin() throws IOException, InterruptedException {
+		intializeDriver();
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		
+		
+		
+		loginPageObjects lpo=new loginPageObjects(driver);
+		Thread.sleep(2000);
+		
+		
+		lpo.enterusername().sendKeys("Admin2323");
+		lpo.enteruserpassword().sendKeys("admin1");
+		lpo.pressloginbutton().click();
+		
+		Thread.sleep(2000);
+		commonMethods.handleAssertion(lpo.invalidmsg().getText(), "Invalid credentials");
+		
+		
+			}
+	
 }

@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import Resources.BaseClass;
+import Resources.commonMethods;
 import pageObjectModel.MyinfoPageObjects;
 import pageObjectModel.loginPageObjects;
 
@@ -32,7 +33,7 @@ public class MyinfoTestcases extends BaseClass {
 		Thread.sleep(2000);
 		mit.putfirstname().sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 		mit.putfirstname().sendKeys("Raghav");
-		mit.putmiddlename().sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
+		mit.putmiddlename().sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 		mit.putmiddlename().sendKeys("Ram");
 		mit.putlastname().sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 		mit.putlastname().sendKeys("Charan");
@@ -45,24 +46,20 @@ public class MyinfoTestcases extends BaseClass {
 		mit.putotherID().sendKeys("4444");
 		mit.putDriverLicencenumber().sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 		mit.putDriverLicencenumber().sendKeys("343");
-
-	mit.putSSNnumber().sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		Thread.sleep(2000);
+		mit.putSSNnumber().sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 		mit.putSSNnumber().sendKeys("333");
+		Thread.sleep(3000);
 		mit.putSINnumber().sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 		mit.putSINnumber().sendKeys("888");
- 
+
 		mit.clickonnationality().click();
-     Thread.sleep(2000);		
-		List<WebElement> Nations=mit.Nationslist();
-		
-		for (WebElement SN:Nations) {
-			if (SN.getText().equalsIgnoreCase("Saudi")){
-	           SN.click();
-	           break;
-	}
-	}
+		Thread.sleep(2000);
+
+		commonMethods.commonMethodForDropdown(mit.Nationslist(), "British");
+
 		mit.Mariatalstatusarrow().click();
-		//Thread.sleep(2000);
+		Thread.sleep(2000);
 		mit.Mstatus().click();
 	}
 }
